@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Observable, throwError, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -5,7 +6,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   isLoggedIn() {
     const userData = localStorage.getItem('user');
@@ -22,5 +23,10 @@ export class AuthService {
     } else {
       return throwError(new Error('Failed to login'));
     }
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 }

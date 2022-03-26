@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
       },
       error: (error) => {
         this.toast.warning({
-          detail: 'warning Message',
-          summary: 'error occurred, please try again',
+          detail: 'Error occurred',
+          summary: 'please register again',
           duration: 3000,
         });
       },
