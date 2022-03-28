@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { NgToastModule } from 'ng-angular-popup';
     AppRoutingModule,
     ReactiveFormsModule,
     NgToastModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

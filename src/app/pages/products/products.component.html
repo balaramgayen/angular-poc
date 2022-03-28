@@ -1,1 +1,25 @@
-<p>products works!</p>
+<div class="container">
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productList">
+                    <th scope="row">{{product.id}}</th>
+                    <td>{{product.title}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.category}}</td>
+                    <td><i class="fa-regular fa-eye"></i>&nbsp;<i class="fa fa-trash" aria-hidden="true"></i>&nbsp;<i
+                            class="fa-solid fa-pen-to-square"></i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
