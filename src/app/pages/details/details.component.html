@@ -1,1 +1,40 @@
-<p>details works!</p>
+<div *ngIf="productDetails" class="container mt-5">
+    <div class="row">
+        <div class="center">
+            <div class="card" style="width: 18rem;">
+                <img src="{{productDetails.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{productDetails.title}}</h5>
+                    <p class="card-text">{{productDetails.description}}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Price: {{productDetails.price}}</li>
+                    <li class="list-group-item">Category: {{productDetails.category}}</li>
+                    <li class="list-group-item">Count: {{productDetails.rating.count}}</li>
+                </ul>
+                <div class="card-body">
+                    <a routerLink="/home" class="card-link">back to home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!productDetails" class="container">
+    <div class="row">
+        <div class="center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="error" class="container">
+    <div class="row">
+        <div class="center">
+            <h2>error while fetch product details
+            </h2>
+        </div>
+    </div>
+</div>

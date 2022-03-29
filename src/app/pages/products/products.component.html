@@ -1,6 +1,9 @@
-<div class="container">
+<div class="container mt-5">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search any products" [(ngModel)]="searchTerm">
+    </div>
     <div class="card">
-        <table class="table">
+        <table *ngIf="productList" class="table">
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -11,15 +14,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of productList">
+                <tr *ngFor="let product of productList | search: searchTerm: 'title'">
                     <th scope="row">{{product.id}}</th>
                     <td>{{product.title}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.category}}</td>
-                    <td><i class="fa-regular fa-eye"></i>&nbsp;<i class="fa fa-trash" aria-hidden="true"></i>&nbsp;<i
-                            class="fa-solid fa-pen-to-square"></i></td>
+                    <td><span routerLink="{{'products/' + product.id}}" class="action"><i
+                                class="fa-regular fa-eye"></i></span></td>
                 </tr>
             </tbody>
         </table>
+        <div *ngIf="!productList" class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
 </div>

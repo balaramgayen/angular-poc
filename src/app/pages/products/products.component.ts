@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
   productList: any;
+  searchTerm!: string;
 
   constructor(private product: ProductService) {}
 
@@ -21,8 +22,12 @@ export class ProductsComponent implements OnInit {
         this.productList = res;
       },
       error: (err) => {
-        alert('some error occurred');
+        alert('error while getting products list');
       },
     });
+  }
+
+  search(event: any) {
+    this.searchTerm = (event.target as HTMLInputElement).value;
   }
 }
